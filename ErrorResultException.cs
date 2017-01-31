@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Threax.AspNetCore.ExceptionToJson
+namespace Threax.AspNetCore.ExceptionFilter
 {
     public class ErrorResultException : Exception
     {

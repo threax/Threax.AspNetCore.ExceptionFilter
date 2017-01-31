@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Threax.AspNetCore.ExceptionToJson
+namespace Threax.AspNetCore.ExceptionFilter
 {
     /// <summary>
     /// This attribute marks that an item must contain items. Supports

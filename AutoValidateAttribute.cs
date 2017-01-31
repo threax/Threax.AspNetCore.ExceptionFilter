@@ -1,4 +1,4 @@
-﻿using Threax.AspNetCore.ExceptionToJson;
+﻿using Threax.AspNetCore.ExceptionFilter;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
