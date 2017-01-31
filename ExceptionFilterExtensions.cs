@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public static class ExceptionToJsonExtensions
+    public static class ExceptionFilterExtensions
     {
         public static MvcOptions UseExceptionErrorFilters(this MvcOptions options, bool detailedErrors = false)
         {
-            options.Filters.Add(new ExceptionToJsonFilterAttribute(detailedErrors));
+            options.Filters.Add(new ExceptionToActionResultFilterAttribute(detailedErrors));
             return options;
         }
     }

@@ -15,7 +15,7 @@ namespace Threax.AspNetCore.ExceptionFilter
     /// This filter checks for the exceptions thrown by the attributes defined in this system
     /// and converts them to the appropriate json result.
     /// </summary>
-    public class ExceptionToJsonFilterAttribute : ExceptionFilterAttribute
+    public class ExceptionToActionResultFilterAttribute : ExceptionFilterAttribute
     {
         private bool detailedInternalServerError;
 
@@ -26,7 +26,7 @@ namespace Threax.AspNetCore.ExceptionFilter
         /// implementation details.
         /// </summary>
         /// <param name="detailedInternalServerError"></param>
-        public ExceptionToJsonFilterAttribute(bool detailedInternalServerError)
+        public ExceptionToActionResultFilterAttribute(bool detailedInternalServerError)
         {
             this.detailedInternalServerError = detailedInternalServerError;
         }
