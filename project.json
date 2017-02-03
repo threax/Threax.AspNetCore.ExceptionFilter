@@ -1,17 +1,18 @@
 {
-  "version": "1.0.1-*",
-
+  "version": "1.0.2-*",
   "dependencies": {
     "Microsoft.AspNetCore.Mvc": "1.1.1",
     "NETStandard.Library": "1.6.1"
   },
-
   "frameworks": {
     "netstandard1.6": {
       "imports": "dnxcore50"
     },
     "net452": {
-
     }
+  },
+  "buildOptions": {
+    "nowarn": [ "1591" ],
+    "xmlDoc": true
   }
 }
