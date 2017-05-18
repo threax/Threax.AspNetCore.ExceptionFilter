@@ -10,12 +10,20 @@ namespace Threax.AspNetCore.ExceptionFilter
     /// </summary>
     public class ExceptionResult : ErrorResult
     {
+        private Exception ex;
+
         public ExceptionResult(Exception ex)
             :base(ex.Message)
         {
-            this.Exception = ex;
+            this.ex = ex;
         }
 
-        public Exception Exception { get; set; }
+        public String Type
+        {
+            get
+            {
+                return ex.GetType().FullName;
+            }
+        }
     }
 }
