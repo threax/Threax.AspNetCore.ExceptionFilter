@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,7 @@ namespace Threax.AspNetCore.ExceptionFilter
     public class ExceptionToActionResultFilterAttribute : ExceptionFilterAttribute
     {
         private bool detailedInternalServerError;
+        private ILogger<ExceptionToActionResultFilterAttribute> logger;
 
         /// <summary>
         /// Constructor. Takes a bool to show detailed Internal Server Error (500) exceptions or not.
@@ -26,13 +28,17 @@ namespace Threax.AspNetCore.ExceptionFilter
         /// implementation details.
         /// </summary>
         /// <param name="detailedInternalServerError"></param>
-        public ExceptionToActionResultFilterAttribute(bool detailedInternalServerError)
+        /// <param name="logger"></param>
+        public ExceptionToActionResultFilterAttribute(bool detailedInternalServerError, ILogger<ExceptionToActionResultFilterAttribute> logger)
         {
             this.detailedInternalServerError = detailedInternalServerError;
+            this.logger = logger;
         }
 
         public override void OnException(ExceptionContext context)
         {
+            logger.LogError($"Exception {context.Exception.GetType().Name} occured.\nMessage: {context.Exception.Message}\nTrace:\n{context.Exception.StackTrace}");
+
             //Validation exception becomes a Bad Request (400) and gets a ModelState simplified and serialized to json.
             var validationException = context.Exception as ValidationException;
             if (validationException != null)

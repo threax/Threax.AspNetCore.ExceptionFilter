@@ -25,5 +25,13 @@ namespace Threax.AspNetCore.ExceptionFilter
                 return ex.GetType().FullName;
             }
         }
+
+        public String StackTrace
+        {
+            get
+            {
+                return ex.StackTrace;
+            }
+        }
     }
 }
