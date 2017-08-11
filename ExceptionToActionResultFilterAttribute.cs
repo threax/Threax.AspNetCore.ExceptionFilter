@@ -37,8 +37,6 @@ namespace Threax.AspNetCore.ExceptionFilter
 
         public override void OnException(ExceptionContext context)
         {
-            logger.LogError($"Exception {context.Exception.GetType().Name} occured.\nMessage: {context.Exception.Message}\nTrace:\n{context.Exception.StackTrace}");
-
             //Validation exception becomes a Bad Request (400) and gets a ModelState simplified and serialized to json.
             var validationException = context.Exception as ValidationException;
             if (validationException != null)
@@ -73,6 +71,9 @@ namespace Threax.AspNetCore.ExceptionFilter
             }
 
             //Other exception types become Internal Server Error (500) and are detailed or not depending on settings.
+            //We also log these exceptions
+            logger.LogError($"Exception {context.Exception.GetType().Name} occured.\nMessage: {context.Exception.Message}\nTrace:\n{context.Exception.StackTrace}");
+
             if (detailedInternalServerError)
             {
                 context.Result = new ObjectResult(new ExceptionResult(context.Exception))
