@@ -6,10 +6,15 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Threax.AspNetCore.ExceptionFilter</AssemblyName>
     <PackageId>Threax.AspNetCore.ExceptionFilter</PackageId>
-    <Version>5.0.1</Version>
+    <Version>5.0.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
+    <Authors>Andrew Piper</Authors>
+    <Description>A library for asp.net core to turn exceptions into error messages that are sent to the client. Also provides model auto validation.</Description>
+    <PackageLicenseUrl>https://github.com/threax/Threax.AspNetCore.ExceptionFilter/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/threax/Threax.AspNetCore.ExceptionFilter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/threax/Threax.AspNetCore.ExceptionFilter</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
