@@ -72,7 +72,7 @@ namespace Threax.AspNetCore.ExceptionFilter
 
             //Other exception types become Internal Server Error (500) and are detailed or not depending on settings.
             //We also log these exceptions
-            logger.LogError($"Exception {context.Exception.GetType().Name} occured.\nMessage: {context.Exception.Message}\nTrace:\n{context.Exception.StackTrace}");
+            logger.LogError(context.Exception, $"Exception {context.Exception.GetType().Name} occured in exception filter.");
 
             if (detailedInternalServerError)
             {
