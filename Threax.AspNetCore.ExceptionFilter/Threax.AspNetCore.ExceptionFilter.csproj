@@ -6,7 +6,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Threax.AspNetCore.ExceptionFilter</AssemblyName>
     <PackageId>Threax.AspNetCore.ExceptionFilter</PackageId>
-    <Version>5.0.3</Version>
+    <Version>5.0.4</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeSource>True</IncludeSource>
@@ -15,7 +15,7 @@
     <PackageLicenseUrl>https://github.com/threax/Threax.AspNetCore.ExceptionFilter/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/threax/Threax.AspNetCore.ExceptionFilter</PackageProjectUrl>
     <RepositoryUrl>https://github.com/threax/Threax.AspNetCore.ExceptionFilter</RepositoryUrl>
-    <PackageReleaseNotes>5.0.3 - Changed how unknown exceptions are logged.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added back exception message when logging unknown exceptions.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
