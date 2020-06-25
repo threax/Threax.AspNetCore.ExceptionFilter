@@ -16,7 +16,15 @@
     <PackageProjectUrl>https://github.com/threax/Threax.AspNetCore.ExceptionFilter</PackageProjectUrl>
     <RepositoryUrl>https://github.com/threax/Threax.AspNetCore.ExceptionFilter</RepositoryUrl>
     <PackageReleaseNotes>Added back exception message when logging unknown exceptions.</PackageReleaseNotes>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.1" />
