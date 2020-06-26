@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,7 @@ namespace Threax.AspNetCore.ExceptionFilter
     {
         private bool detailedInternalServerError;
         private ILogger<ExceptionToActionResultFilterAttribute> logger;
+        private readonly NamingStrategy namingStrategy;
 
         /// <summary>
         /// Constructor. Takes a bool to show detailed Internal Server Error (500) exceptions or not.
@@ -29,10 +31,12 @@ namespace Threax.AspNetCore.ExceptionFilter
         /// </summary>
         /// <param name="detailedInternalServerError"></param>
         /// <param name="logger"></param>
-        public ExceptionToActionResultFilterAttribute(bool detailedInternalServerError, ILogger<ExceptionToActionResultFilterAttribute> logger)
+        /// <param name="namingStrategy">The naming strategy to use. Can be null.</param>
+        public ExceptionToActionResultFilterAttribute(bool detailedInternalServerError, ILogger<ExceptionToActionResultFilterAttribute> logger, NamingStrategy namingStrategy)
         {
             this.detailedInternalServerError = detailedInternalServerError;
             this.logger = logger;
+            this.namingStrategy = namingStrategy;
         }
 
         public override void OnException(ExceptionContext context)
@@ -41,7 +45,7 @@ namespace Threax.AspNetCore.ExceptionFilter
             var validationException = context.Exception as ValidationException;
             if (validationException != null)
             {
-                context.Result = new ObjectResult(new ModelStateErrorResult(context.ModelState, validationException.Message))
+                context.Result = new ObjectResult(new ModelStateErrorResult(context.ModelState, validationException.Message, namingStrategy))
                 {
                     StatusCode = (int)HttpStatusCode.BadRequest
                 };
