@@ -17,9 +17,9 @@ namespace Microsoft.Extensions.DependencyInjection
         public bool DetailedErrors { get; set; } = false;
 
         /// <summary>
-        /// Set to the naming strategy you want to use. Default is null or no strategy, which makes no changes.
+        /// Set to the naming strategy you want to use. Can be null to make no changes. Default is CamelCaseNamingStrategy.
         /// </summary>
-        public NamingStrategy NamingStrategy { get; set; }
+        public NamingStrategy NamingStrategy { get; set; } = new CamelCaseNamingStrategy();
     }
 
     public static class ExceptionFilterExtensions
